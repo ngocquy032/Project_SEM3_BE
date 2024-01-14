@@ -33,7 +33,7 @@ namespace Arts_be.Controllers
         }
 
         // POST: api/Users/Login
-        [HttpPost("Login")]
+        [HttpPost("LoginUsers")]
         public async Task<ActionResult<User>> LoginUser(LoginDTO loginDTO)
         {
             if (_context.Users == null)
@@ -47,6 +47,12 @@ namespace Arts_be.Controllers
             if (user == null)
             {
                 return NotFound();
+            }
+            // Kiểm tra level của người dùng
+            if (user.Level != "user")
+            {
+                // Nếu level không phải là "user", trả về lỗi hoặc thực hiện xử lý phù hợp
+                return BadRequest("Access denied. Only users with level 'user' are allowed.");
             }
 
             return user;
