@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Arts_be.Models;
+using Arts_be.Models.DTO;
 
 namespace Arts_be.Controllers
 {
@@ -29,6 +30,26 @@ namespace Arts_be.Controllers
               return NotFound();
           }
             return await _context.Users.ToListAsync();
+        }
+
+        // POST: api/Users/Login
+        [HttpPost("Login")]
+        public async Task<ActionResult<User>> LoginUser(LoginDTO loginDTO)
+        {
+            if (_context.Users == null)
+            {
+                return Problem("Entity set 'UsersContext.Users' is null.");
+            }
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == loginDTO.email && u.Password == loginDTO.password);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
         }
 
         // GET: api/Users/5
