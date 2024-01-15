@@ -176,7 +176,6 @@ public partial class EProjectContext : DbContext
                 .HasMaxLength(7)
                 .IsUnicode(false)
                 .HasColumnName("Product_code");
-            entity.Property(e => e.ProductImagesId).HasColumnName("Product_images_id");
             entity.Property(e => e.Sale).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.Tags)
                 .HasMaxLength(100)

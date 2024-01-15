@@ -9,9 +9,16 @@ public partial class Product
 
     public string ProductCode { get; set; } = null!;
 
-    public int? ProductImagesId { get; set; }
-
     public int? ProductCategoryId { get; set; }
+
+    public string Title { get; set; }
+
+    public string SKU { get; set; }
+
+    public string? Brands { get; set; }
+
+    public string? CommentBrands { get; set; }
+
 
     public string? Description { get; set; }
 

@@ -10,4 +10,5 @@ public partial class ProductImage
     public string? Path { get; set; }
 
     public string? Description { get; set; }
+    public int Product_id { get; set; }
 }
