@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Arts_be.Models;
+using Arts_be.Models.DTO;
 
 namespace Arts_be.Controllers
 {
@@ -27,7 +28,7 @@ namespace Arts_be.Controllers
           if (_context.Products == null)
           {
               return NotFound();
-          }
+         }
             return await _context.Products.ToListAsync();
         }
 

@@ -11,9 +11,9 @@ public partial class Product
 
     public int? ProductCategoryId { get; set; }
 
-    public string Title { get; set; }
+    public string? Title { get; set; }
 
-    public string SKU { get; set; }
+    public string? SKU { get; set; }
 
     public string? Brands { get; set; }
 
