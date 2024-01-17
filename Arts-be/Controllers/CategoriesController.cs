@@ -54,7 +54,7 @@ namespace Arts_be.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
-            if (id != category.CategeryId)
+            if (id != category.CategoryId)
             {
                 return BadRequest();
             }
@@ -92,7 +92,7 @@ namespace Arts_be.Controllers
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.CategeryId }, category);
+            return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
         }
 
         // DELETE: api/Categories/5
@@ -117,7 +117,7 @@ namespace Arts_be.Controllers
 
         private bool CategoryExists(int id)
         {
-            return (_context.Categories?.Any(e => e.CategeryId == id)).GetValueOrDefault();
+            return (_context.Categories?.Any(e => e.CategoryId == id)).GetValueOrDefault();
         }
     }
 }

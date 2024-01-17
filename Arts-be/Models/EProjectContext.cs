@@ -86,11 +86,11 @@ public partial class EProjectContext : DbContext
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategeryId).HasName("PK__Category__445A6543FCB836FD");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Category__445A6543FCB836FD");
 
             entity.ToTable("Category");
 
-            entity.Property(e => e.CategeryId).HasColumnName("Categery_id");
+            entity.Property(e => e.CategoryId).HasColumnName("Category_id");
             entity.Property(e => e.Desccription).HasColumnType("text");
             entity.Property(e => e.NameCategory)
                 .HasMaxLength(255)

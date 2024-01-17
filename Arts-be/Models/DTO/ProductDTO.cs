@@ -2,8 +2,8 @@
 {
     public class ProductDTO
     {
-        public string? path { get; set; } 
-        public int Product_id { get; set; }
+
+        public int productId { get; set; }
 
         public string? Product_code { get; set; }
 
@@ -14,6 +14,8 @@
         public decimal? Price { get; set; }
 
         public int Quantity { get; set; }
+
+        public string Title { get; set; }
 
         public decimal? Weight { get; set; }
 
@@ -28,5 +30,10 @@
         public string? Brands { get; set; }
 
         public string? CommentsBrands { get; set; }
+        public string? path { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public string CategoryName { get; set; }
     }
 }

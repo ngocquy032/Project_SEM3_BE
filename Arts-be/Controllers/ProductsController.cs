@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Arts_be.Models;
 using Arts_be.Models.DTO;
+using Azure;
 
 namespace Arts_be.Controllers
 {
@@ -25,30 +26,141 @@ namespace Arts_be.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-          if (_context.Products == null)
-          {
-              return NotFound();
-         }
-            return await _context.Products.ToListAsync();
+
+            try
+            {
+                var result = await _context.Products
+                    .Join(
+                        _context.ProductImages,
+                        product => product.ProductId,
+                        image => image.Product_id,
+                        (product, image) => new
+                        {
+                            product,
+                            image
+                        }
+                    )
+                    .Join(
+                        _context.Categories,
+                        combined => combined.product.ProductCategoryId,
+                        category => category.CategoryId,
+                        (combined, category) => new ProductDTO
+                        {
+                            productId = combined.product.ProductId,
+                            Product_code = combined.product.ProductCode,
+                            Description = combined.product.Description,
+                            Price = combined.product.Price,
+                            Title = combined.product.Title,
+                            Quantity = (int)combined.product.Quantity,
+                            Weight = combined.product.Weight,
+                            Tag = combined.product.Tags,
+                            Availability = combined.product.Availability,
+                            Sale = combined.product.Sale,
+                            SKU = combined.product.SKU,
+                            Brands = combined.product.Brands,
+                            CommentsBrands = combined.product.CommentBrands,
+                            // Add other properties from Product entity as needed
+                            path = combined.image.Path,
+
+                            // Properties from Category entity
+                            CategoryId = category.CategoryId,
+                            CategoryName = category.NameCategory,
+                            // Add other properties from Category entity as needed
+                        }
+                    )
+                    .ToListAsync();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+            /*       if (_context.Products == null)
+                   {
+                       return NotFound();
+                   }
+                   return await _context.Products.ToListAsync();*/
         }
 
         // GET: api/Products/5
+        /*       [HttpGet("{id}")]
+               public async Task<ActionResult<Product>> GetProduct(int id)
+               {
+                 if (_context.Products == null)
+                 {
+                     return NotFound();
+                 }
+                   var product = await _context.Products.FindAsync(id);
+
+                   if (product == null)
+                   {
+                       return NotFound();
+                   }
+
+                   return product;
+               }*/
+        // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductDTO>> GetProduct(int id)
         {
-          if (_context.Products == null)
-          {
-              return NotFound();
-          }
-            var product = await _context.Products.FindAsync(id);
-
-            if (product == null)
+            try
             {
-                return NotFound();
-            }
+                var result = await _context.Products
+                    .Where(product => product.ProductId == id)
+                    .Join(
+                        _context.ProductImages,
+                        product => product.ProductId,
+                        image => image.Product_id,
+                        (product, image) => new
+                        {
+                            product,
+                            image
+                        }
+                    )
+                    .Join(
+                        _context.Categories,
+                        combined => combined.product.ProductCategoryId,
+                        category => category.CategoryId,
+                        (combined, category) => new ProductDTO
+                        {
+                            productId = combined.product.ProductId,
+                            Product_code = combined.product.ProductCode,
+                            Description = combined.product.Description,
+                            Price = combined.product.Price,
+                            Title = combined.product.Title,
+                            Quantity = (int)combined.product.Quantity,
+                            Weight = combined.product.Weight,
+                            Tag = combined.product.Tags,
+                            Availability = combined.product.Availability,
+                            Sale = combined.product.Sale,
+                            SKU = combined.product.SKU,
+                            Brands = combined.product.Brands,
+                            CommentsBrands = combined.product.CommentBrands,
+                            // Add other properties from Product entity as needed
+                            path = combined.image.Path,
 
-            return product;
+                            // Properties from Category entity
+                            CategoryId = category.CategoryId,
+                            CategoryName = category.NameCategory,
+                            // Add other properties from Category entity as needed
+                        }
+                    )
+                    .FirstOrDefaultAsync();
+
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
+
 
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
