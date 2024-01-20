@@ -31,7 +31,7 @@
 
         public string? CommentsBrands { get; set; }
         public string? path { get; set; }
-
+     
         public int CategoryId { get; set; }
 
         public string CategoryName { get; set; }
