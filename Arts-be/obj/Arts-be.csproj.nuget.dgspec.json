@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\Arts-be.csproj": {}
+    "D:\\Sem3\\Project_SEM3\\BE\\Project_SEM3_BE\\Arts-be\\Arts-be.csproj": {}
   },
   "projects": {
-    "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\Arts-be.csproj": {
+    "D:\\Sem3\\Project_SEM3\\BE\\Project_SEM3_BE\\Arts-be\\Arts-be.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\Arts-be.csproj",
+        "projectUniqueName": "D:\\Sem3\\Project_SEM3\\BE\\Project_SEM3_BE\\Arts-be\\Arts-be.csproj",
         "projectName": "Arts-be",
-        "projectPath": "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\Arts-be.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\obj\\",
+        "projectPath": "D:\\Sem3\\Project_SEM3\\BE\\Project_SEM3_BE\\Arts-be\\Arts-be.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "D:\\Sem3\\Project_SEM3\\BE\\Project_SEM3_BE\\Arts-be\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,7 +55,7 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.14, )"
+              "version": "[7.0.15, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -68,6 +73,10 @@
               "target": "Package",
               "version": "[7.0.14, )"
             },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.30, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.11, )"
@@ -79,6 +88,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "VNPayPackage": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             }
           },
           "imports": [
@@ -100,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

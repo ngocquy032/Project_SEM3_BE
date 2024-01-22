@@ -1,4 +1,5 @@
 using Arts_be.Models;
+using Arts_be.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<EProjectContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Server=tcp:project-sem3.database.windows.net,1433;Initial Catalog=eProject;Persist Security Info=False;User ID=Project;Password=Dungdepzai123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")));
+
+builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

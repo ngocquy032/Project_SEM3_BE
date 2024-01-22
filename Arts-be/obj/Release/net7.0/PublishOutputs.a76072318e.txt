@@ -76,6 +76,7 @@ D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\PubTmp\Out\Sy
 D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Security.Permissions.dll
 D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Windows.Extensions.dll
+D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\PubTmp\Out\VNPayPackage.dll
 D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\PubTmp\Out\af\Humanizer.resources.dll
 D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\PubTmp\Out\ar\Humanizer.resources.dll
 D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\PubTmp\Out\az\Humanizer.resources.dll

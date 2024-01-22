@@ -235,5 +235,10 @@ public partial class EProjectContext : DbContext
         OnModelCreatingPartial(modelBuilder);
     }
 
+    internal Task SaveChangesAsync()
+    {
+        throw new NotImplementedException();
+    }
+
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

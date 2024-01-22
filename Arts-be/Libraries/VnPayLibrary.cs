@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
-using Arts_be.Models;
+using Arts_be.Models.DTO;
 
 namespace Arts_be.Libraries
 {
