@@ -235,10 +235,15 @@ public partial class EProjectContext : DbContext
         OnModelCreatingPartial(modelBuilder);
     }
 
-    internal Task SaveChangesAsync()
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        // Thực hiện các thay đổi cần thiết trước khi lưu
+        // Ví dụ: Bạn có thể thêm logic validation hoặc manipulation ở đây
+
+        // Gọi phương thức SaveChangesAsync từ lớp cha để lưu thay đổi vào cơ sở dữ liệu
+        return base.SaveChangesAsync(cancellationToken);
     }
+
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

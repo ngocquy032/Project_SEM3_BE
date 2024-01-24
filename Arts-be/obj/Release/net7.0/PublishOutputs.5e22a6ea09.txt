@@ -76,6 +76,7 @@ D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Security.Permissions.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Windows.Extensions.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\VNPayPackage.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\af\Humanizer.resources.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\ar\Humanizer.resources.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\az\Humanizer.resources.dll

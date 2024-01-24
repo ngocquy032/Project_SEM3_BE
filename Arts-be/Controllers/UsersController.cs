@@ -34,7 +34,7 @@ namespace Arts_be.Controllers
 
         // POST: api/Users/Login
         [HttpPost("LoginUsers")]
-        public async Task<ActionResult<User>> LoginUser(LoginDTO loginDTO)
+        public async Task<ActionResult<User>> LoginUser(LoginUserDTO loginUserDTO)
         {
             if (_context.Users == null)
             {
@@ -42,7 +42,7 @@ namespace Arts_be.Controllers
             }
 
             var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Email == loginDTO.email && u.Password == loginDTO.password);
+                .FirstOrDefaultAsync(u => u.Email == loginUserDTO.email && u.Password == loginUserDTO.password);
 
             if (user == null)
             {
@@ -56,6 +56,32 @@ namespace Arts_be.Controllers
             }
 
             return user;
+        }
+
+        // POST: api/Users/Login
+        [HttpPost("LoginAdmin")]
+        public async Task<ActionResult<User>> LoginAdmin(LoginAdminDTO loginAdminDTO)
+        {
+            if (_context.Users == null)
+            {
+                return Problem("Entity set 'UsersContext.Users' is null.");
+            }
+
+            var admin = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == loginAdminDTO.email && u.Password == loginAdminDTO.password);
+
+            if (admin == null)
+            {
+                return NotFound();
+            }
+            // Kiểm tra level của người dùng
+            if (admin.Level != "admin")
+            {
+                // Nếu level không phải là "user", trả về lỗi hoặc thực hiện xử lý phù hợp
+                return BadRequest("Access denied. Only users with level 'user' are allowed.");
+            }
+
+            return admin;
         }
 
         // GET: api/Users/5
