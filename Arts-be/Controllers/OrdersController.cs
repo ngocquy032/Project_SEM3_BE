@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Arts_be.Models;
+using Arts_be.Models.DTO;
 
 namespace Arts_be.Controllers
 {
@@ -83,19 +84,52 @@ namespace Arts_be.Controllers
         // POST: api/Orders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<ActionResult<PaymentInformationModel>> PostOrder(PaymentInformationModel model)
         {
-          if (_context.Orders == null)
-          {
-              return Problem("Entity set 'EProjectContext.Orders'  is null.");
-          }
-            _context.Orders.Add(order);
+            Order order = new Order
+            {
+                UserId = model.UserID,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                StreetAdress = model.Address,
+                Email = model.Email,
+                Phone = model.Phone,
+                PaymentType = model.OrderType,
+                Country = model.Country,
+                Town = model.Town,
+                Notes = model.Notes,
+                District = model.District
+            };
+            _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetOrder", new { id = order.OrderId }, order);
+            int orderID = order.OrderId;
+            foreach (var orderDetail in model.orderDetails)
+            {
+                OrdersDetail ordersDetail = new OrdersDetail
+                {
+                    OrderId = orderID,
+                    ProductId = orderDetail.ProductID,
+                    Quantity = orderDetail.Quantity,
+                    Price = orderDetail.Price,
+                    OriginalPrice = orderDetail.OriginPrice,
+                    Total = orderDetail.total
+                };
+                _context.OrdersDetails.AddAsync(ordersDetail);
+                await _context.SaveChangesAsync();
+                // Cập nhật lại số lượng
+                Product product = await _context.Products.FindAsync(orderDetail.ProductID);
+                if (product != null)
+                {
+                    product.Quantity -= orderDetail.Quantity;
+                    await _context.SaveChangesAsync();
+                }
+            }
+            return model;
         }
 
-        // DELETE: api/Orders/5
+
+
+        // DELETE: api/Orders/
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {

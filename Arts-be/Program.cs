@@ -17,7 +17,7 @@ builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddMemoryCache();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularOrigins",

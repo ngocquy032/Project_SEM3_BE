@@ -30,10 +30,11 @@ namespace Arts_be.Libraries
             var orderId = Convert.ToInt64(vnPay.GetResponseData("vnp_TxnRef"));
             var vnPayTranId = Convert.ToInt64(vnPay.GetResponseData("vnp_TransactionNo"));
             var vnpResponseCode = vnPay.GetResponseData("vnp_ResponseCode");
+
             var vnpSecureHash =
                 collection.FirstOrDefault(k => k.Key == "vnp_SecureHash").Value; //hash của dữ liệu trả về
             var orderInfo = vnPay.GetResponseData("vnp_OrderInfo");
-
+            
             var checkSignature =
                 vnPay.ValidateSignature(vnpSecureHash, hashSecret); //check Signature
 
@@ -42,7 +43,7 @@ namespace Arts_be.Libraries
                 {
                     Success = false
                 };
-
+            
             return new PaymentResponseModel()
             {
                 Success = true,

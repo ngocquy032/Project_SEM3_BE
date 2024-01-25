@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\Arts-be.csproj": {}
+    "D:\\webBE\\Project_SEM3_BE\\Arts-be\\Arts-be.csproj": {}
   },
   "projects": {
-    "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\Arts-be.csproj": {
+    "D:\\webBE\\Project_SEM3_BE\\Arts-be\\Arts-be.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\Arts-be.csproj",
+        "projectUniqueName": "D:\\webBE\\Project_SEM3_BE\\Arts-be\\Arts-be.csproj",
         "projectName": "Arts-be",
-        "projectPath": "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\Arts-be.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Source-Angular\\Project_SEM3\\BE\\Arts-be\\Arts-be\\obj\\",
+        "projectPath": "D:\\webBE\\Project_SEM3_BE\\Arts-be\\Arts-be.csproj",
+        "packagesPath": "C:\\Users\\vuqua\\.nuget\\packages\\",
+        "outputPath": "D:\\webBE\\Project_SEM3_BE\\Arts-be\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vuqua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -108,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

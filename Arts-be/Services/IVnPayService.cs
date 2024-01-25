@@ -9,6 +9,7 @@ namespace Arts_be.Services
         //string CreatePaymentUrl(OrderDTO model, HttpContext context);
         //object CreatePaymentUrl(OrderDTO model, HttpContext httpContext);
         PaymentResponseModel PaymentExecute(IQueryCollection collections);
+        PaymentInformationModel GetPaymentModelFromCache(int userId);
 
     }
 }
