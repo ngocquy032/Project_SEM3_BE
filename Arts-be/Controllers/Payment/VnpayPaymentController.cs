@@ -39,8 +39,9 @@ namespace Arts_be.Controllers.Payment
             var response = _vnPayService.PaymentExecute(Request.Query);
             int userId = int.Parse(HttpContext.Request.Query["UserID"]);
             var model = _vnPayService.GetPaymentModelFromCache(userId); // Corrected method call
-            if (response.Success == true)
+            if (response.Success == true && response.VnPayResponseCode == "00")
             {
+
                 Order order = new Order
                 {
                     UserId = userId,
@@ -53,7 +54,8 @@ namespace Arts_be.Controllers.Payment
                     Country = model.Country,
                     Town = model.Town,
                     Notes = model.Notes,
-                    District = model.District
+                    District = model.District,
+                    OrderStatus = "completly payment"
                 };
                 _context.Orders.AddAsync(order);
                 await _context.SaveChangesAsync();
@@ -80,7 +82,9 @@ namespace Arts_be.Controllers.Payment
                     }
                 }
 
-                return Redirect($"~/success-page?OrderID={orderID}");
+                /*return Redirect($"~/success-page?OrderID={orderID}");*/
+                return Redirect($"http://localhost:4200");
+
             }
             else
             {
@@ -90,6 +94,6 @@ namespace Arts_be.Controllers.Payment
             }
         }
 
-
+      
     }
 }

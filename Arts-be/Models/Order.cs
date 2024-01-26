@@ -29,6 +29,8 @@ public partial class Order
 
     public string? District { get; set; }
 
+    public string? OrderStatus { get; set; }
+
     public virtual ICollection<OrdersDetail> OrdersDetails { get; set; } = new List<OrdersDetail>();
 
     public virtual User? User { get; set; }

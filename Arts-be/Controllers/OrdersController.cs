@@ -98,7 +98,8 @@ namespace Arts_be.Controllers
                 Country = model.Country,
                 Town = model.Town,
                 Notes = model.Notes,
-                District = model.District
+                District = model.District,
+                OrderStatus = "Chưa thanh toán"
             };
             _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
