@@ -22,9 +22,9 @@ namespace Arts_be.Controllers
             _context = context;
         }
 
-        // GET: api/Products
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        // GET: api/ProductsDTO
+        [HttpGet("productDTO")]
+        public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProduct()
         {
 
             try
@@ -83,26 +83,36 @@ namespace Arts_be.Controllers
                    return await _context.Products.ToListAsync();*/
         }
 
-        // GET: api/Products/5
-        /*       [HttpGet("{id}")]
-               public async Task<ActionResult<Product>> GetProduct(int id)
-               {
-                 if (_context.Products == null)
-                 {
-                     return NotFound();
-                 }
-                   var product = await _context.Products.FindAsync(id);
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        {
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+            return await _context.Products.ToListAsync();
+        }
 
-                   if (product == null)
-                   {
-                       return NotFound();
-                   }
-
-                   return product;
-               }*/
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductDTO>> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id)
+        {
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+            var product = await _context.Products.FindAsync(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return product;
+        }
+        // GET: api/Products/5
+        [HttpGet("productDTO/{id}")]
+        public async Task<ActionResult<ProductDTO>> GetProductDTO(int id)
         {
             try
             {

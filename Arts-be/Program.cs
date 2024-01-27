@@ -1,3 +1,4 @@
+using Arts_be.Helpter;
 using Arts_be.Models;
 using Arts_be.Services;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,12 @@ builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddTransient<IEmailService, EmailService>();
+
+
 builder.Services.AddMemoryCache();
 builder.Services.AddCors(options =>
 {

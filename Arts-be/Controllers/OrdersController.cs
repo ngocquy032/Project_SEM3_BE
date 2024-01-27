@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Arts_be.Models;
 using Arts_be.Models.DTO;
+using Arts_be.Helpter;
+using Arts_be.Services;
 
 namespace Arts_be.Controllers
 {
@@ -14,11 +16,44 @@ namespace Arts_be.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
+   
         private readonly EProjectContext _context;
 
-        public OrdersController(EProjectContext context)
+        private readonly IEmailService emailService;
+
+        public OrdersController(EProjectContext context, IEmailService service)
         {
             _context = context;
+            this.emailService = service;
+        }
+
+        [HttpPost("SendMail")]
+
+        public async Task<IActionResult> SendMail()
+        {
+            try {
+                Mailrequest mailrequest = new Mailrequest();
+                mailrequest.ToEmail = "quynnth2208032@fpt.edu.vn";
+                mailrequest.Subject = "Welcome to Arts Shop";
+                mailrequest.Body = GetHtmlcontent();
+                await emailService.SendEmailAsync(mailrequest);
+                return Ok();
+            }
+            catch (Exception ex) {
+                throw;
+            }
+        }
+
+        private string GetHtmlcontent()
+        {
+            string Response = "<div style=\"width:100%;background-color:lightblue;text-align:center;margin:10px\">";
+            Response += "<h1>Welcome to Nihira Techiees</h1>";
+            Response += "<img src=\"https://yt3.googleusercontent.com/v5hyLB4am6E0GZ3y-JXVCxT9g8157eSeNggTZKkWRSfq_B12sCCiZmRhZ4JmRop-nMA18D2IPw=s176-c-k-c0x00ffffff-no-rj\" />";
+            Response += "<h2>Thanks for subscribed us</h2>";
+            Response += "<a href=\"https://www.youtube.com/channel/UCsbmVmB_or8sVLLEq4XhE_A/join\">Please join membership by click the link</a>";
+            Response += "<div><h1> Contact us : nihiratechiees@gmail.com</h1></div>";
+            Response += "</div>";
+            return Response;
         }
 
         // GET: api/Orders
@@ -125,6 +160,7 @@ namespace Arts_be.Controllers
                     await _context.SaveChangesAsync();
                 }
             }
+
             return model;
         }
 

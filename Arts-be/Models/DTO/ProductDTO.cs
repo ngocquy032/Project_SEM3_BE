@@ -25,7 +25,7 @@
 
         public decimal? Sale { get; set; }
 
-        public string? SKU    { get; set;}
+        public int? SKU    { get; set;}
 
         public string? Brands { get; set; }
 

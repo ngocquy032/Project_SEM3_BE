@@ -7,13 +7,13 @@ public partial class Product
 {
     public int ProductId { get; set; }
 
-    public string ProductCode { get; set; } = null!;
+    public string ProductCode { get; set; }
 
     public int? ProductCategoryId { get; set; }
 
     public string? Title { get; set; }
 
-    public string? SKU { get; set; }
+    public int? SKU { get; set; }
 
     public string? Brands { get; set; }
 
@@ -34,5 +34,5 @@ public partial class Product
 
     public decimal? Sale { get; set; }
 
-    public virtual ICollection<OrdersDetail> OrdersDetails { get; set; } = new List<OrdersDetail>();
+    /*public virtual ICollection<OrdersDetail> OrdersDetails { get; set; } = new List<OrdersDetail>();*/
 }

@@ -40,4 +40,5 @@ public partial class User
     public virtual ICollection<Blog> Blogs { get; set; } = new List<Blog>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
 }

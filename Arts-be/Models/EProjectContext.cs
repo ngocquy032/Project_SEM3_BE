@@ -91,7 +91,6 @@ public partial class EProjectContext : DbContext
             entity.ToTable("Category");
 
             entity.Property(e => e.CategoryId).HasColumnName("Category_id");
-            entity.Property(e => e.Desccription).HasColumnType("text");
             entity.Property(e => e.NameCategory)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -154,9 +153,9 @@ public partial class EProjectContext : DbContext
                 .HasForeignKey(d => d.OrderId)
                 .HasConstraintName("FK__Orders_De__Order__6E01572D");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.OrdersDetails)
+          /*  entity.HasOne(d => d.Product).WithMany(p => p.OrdersDetails)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__Orders_De__Produ__6EF57B66");
+                .HasConstraintName("FK__Orders_De__Produ__6EF57B66");*/
         });
 
         modelBuilder.Entity<Product>(entity =>

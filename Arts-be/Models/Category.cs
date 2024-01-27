@@ -9,5 +9,4 @@ public partial class Category
 
     public string? NameCategory { get; set; }
 
-    public string? Desccription { get; set; }
 }

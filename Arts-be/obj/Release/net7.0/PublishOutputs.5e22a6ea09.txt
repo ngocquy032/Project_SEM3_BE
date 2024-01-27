@@ -7,7 +7,9 @@ D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Azure.Core.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Azure.Data.Tables.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Azure.Identity.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\BouncyCastle.Cryptography.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Humanizer.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\MailKit.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
@@ -49,6 +51,7 @@ D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\MimeKit.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Newtonsoft.Json.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\NuGet.Common.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\NuGet.Configuration.dll
@@ -73,6 +76,7 @@ D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Memory.Data.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Reflection.MetadataLoadContext.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Runtime.Caching.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Security.Cryptography.Pkcs.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Security.Permissions.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\System.Windows.Extensions.dll
@@ -226,6 +230,7 @@ D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\obj\Release\net7.0\PubTmp\Out\Arts-be.deps.json

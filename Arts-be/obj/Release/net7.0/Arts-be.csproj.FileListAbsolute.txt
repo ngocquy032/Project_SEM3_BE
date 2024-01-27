@@ -510,3 +510,8 @@ D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\Arts-be.pdb
 D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\Arts-be.genruntimeconfig.cache
 D:\Sem3\Project_SEM3\BE\Project_SEM3_BE\Arts-be\obj\Release\net7.0\ref\Arts-be.dll
 D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\bin\Release\net7.0\VNPayPackage.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\bin\Release\net7.0\BouncyCastle.Cryptography.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\bin\Release\net7.0\MimeKit.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\bin\Release\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\bin\Release\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\Source-Angular\Project_SEM3\BE\Arts-be\Arts-be\bin\Release\net7.0\MailKit.dll
