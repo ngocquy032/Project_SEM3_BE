@@ -104,6 +104,7 @@ public partial class EProjectContext : DbContext
             entity.Property(e => e.OrderId).HasColumnName("Order_id");
             entity.Property(e => e.Country).HasMaxLength(255);
             entity.Property(e => e.District).HasMaxLength(255);
+
             entity.Property(e => e.Email)
                 .HasMaxLength(250)
                 .IsUnicode(false);

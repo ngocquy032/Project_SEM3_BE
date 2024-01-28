@@ -10,6 +10,7 @@ public partial class OrdersDetail
     public int? OrderId { get; set; }
 
     public int? ProductId { get; set; }
+    public string Title { get; set; }
 
     public int? Quantity { get; set; }
 

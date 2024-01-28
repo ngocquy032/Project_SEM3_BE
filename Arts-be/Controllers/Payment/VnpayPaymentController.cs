@@ -55,7 +55,8 @@ namespace Arts_be.Controllers.Payment
                     Town = model.Town,
                     Notes = model.Notes,
                     District = model.District,
-                    OrderStatus = "completly payment"
+                    OrderStatus = "completly payment",
+                    Amount = model.Amount
                 };
                 _context.Orders.AddAsync(order);
                 await _context.SaveChangesAsync();
@@ -66,6 +67,7 @@ namespace Arts_be.Controllers.Payment
                     {
                         OrderId = orderID,
                         ProductId = orderDetail.ProductID,
+                        Title = orderDetail.Title,
                         Quantity = orderDetail.Quantity,
                         Price = orderDetail.Price,
                         OriginalPrice = orderDetail.OriginPrice,

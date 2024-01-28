@@ -7,7 +7,7 @@ namespace Arts_be.Models.DTO
     public class PaymentInformationModel
     {
         public string OrderType { get; set; }
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
         public string OrderDescription { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -19,6 +19,7 @@ namespace Arts_be.Models.DTO
         public string Town { get; set; }
         public string Notes { get; set; }
         public string District { get; set; }
+       
         public List<ODDTO> orderDetails { get; set; }
 
        

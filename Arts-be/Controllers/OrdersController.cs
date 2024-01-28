@@ -134,7 +134,9 @@ namespace Arts_be.Controllers
                 Town = model.Town,
                 Notes = model.Notes,
                 District = model.District,
-                OrderStatus = "Chưa thanh toán"
+                OrderStatus = "Chưa thanh toán",
+                Amount = model.Amount,
+             
             };
             _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
@@ -145,6 +147,7 @@ namespace Arts_be.Controllers
                 {
                     OrderId = orderID,
                     ProductId = orderDetail.ProductID,
+                    Title = orderDetail.Title,
                     Quantity = orderDetail.Quantity,
                     Price = orderDetail.Price,
                     OriginalPrice = orderDetail.OriginPrice,
@@ -190,5 +193,101 @@ namespace Arts_be.Controllers
         {
             return (_context.Orders?.Any(e => e.OrderId == id)).GetValueOrDefault();
         }
+
+        // GET: api/Orders/orderDTO
+
+        [HttpGet("orderDTO")]
+        public async Task<ActionResult<IEnumerable<OrderDTO>>> GetOrdersDTO()
+        {
+            try
+            {
+                var result = await _context.Orders
+                    .Include(o => o.OrdersDetails)
+                    .Select(o => new OrderDTO
+                    {
+                        OrderId = o.OrderId,
+                        UserId = o.UserId,
+                        FirstName = o.FirstName,
+                        LastName = o.LastName,
+                        StreetAdress = o.StreetAdress,
+                        Email = o.Email,
+                        Phone = o.Phone,
+                        PaymentType = o.PaymentType,
+                        Amount = o.Amount,
+                        Country = o.Country,
+                        Town = o.Town,
+                        Notes = o.Notes,
+                        District = o.District,
+                        OrderStatus = o.OrderStatus,
+                        OrdersDetails = o.OrdersDetails.Select(od => new OrdersDetail
+                        {
+                            ProductId = od.ProductId,
+                            Title = od.Title,
+                            Quantity = od.Quantity,
+                            Price = od.Price,
+                            OriginalPrice = od.OriginalPrice,
+                            Total = od.Total
+                        }).ToList()
+                    })
+                    .ToListAsync();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
+        [HttpGet("orderDTO/{orderId}")]
+        public async Task<ActionResult<OrderDTO>> GetOrderDTO(int orderId)
+        {
+            try
+            {
+                var order = await _context.Orders
+                    .Include(o => o.OrdersDetails)
+                    .FirstOrDefaultAsync(o => o.OrderId == orderId);
+
+                if (order == null)
+                {
+                    return NotFound();
+                }
+
+                var orderDTO = new OrderDTO
+                {
+                    OrderId = order.OrderId,
+                    UserId = order.UserId,
+                    FirstName = order.FirstName,
+                    LastName = order.LastName,
+                    StreetAdress = order.StreetAdress,
+                    Email = order.Email,
+                    Phone = order.Phone,
+                    PaymentType = order.PaymentType,
+                    Amount = order.Amount,
+                    Country = order.Country,
+                    Town = order.Town,
+                    Notes = order.Notes,
+                    District = order.District,
+                    OrderStatus = order.OrderStatus,
+                    OrdersDetails = order.OrdersDetails.Select(od => new OrdersDetail
+                    {
+                        ProductId = od.ProductId,
+                        Title = od.Title,
+                        Quantity = od.Quantity,
+                        Price = od.Price,
+                        OriginalPrice = od.OriginalPrice,
+                        Total = od.Total
+                    }).ToList()
+                };
+
+                return Ok(orderDTO);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
     }
 }
