@@ -33,7 +33,7 @@ public partial class User
 
     public string? FirstName { get; set; }
 
-    public string Password { get; set; }
+    public string? Password { get; set; }
 
     public virtual ICollection<BlogComment> BlogComments { get; set; } = new List<BlogComment>();
 

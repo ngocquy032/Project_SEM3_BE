@@ -134,7 +134,7 @@ namespace Arts_be.Controllers
                 Town = model.Town,
                 Notes = model.Notes,
                 District = model.District,
-                OrderStatus = "Chưa thanh toán",
+                OrderStatus = "Waiting for confirmation",
                 Amount = model.Amount,
              
             };
