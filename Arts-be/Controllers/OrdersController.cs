@@ -55,17 +55,33 @@ namespace Arts_be.Controllers
             Response += "</div>";
             return Response;
         }
-
+      
         // GET: api/Orders
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-          if (_context.Orders == null)
-          {
-              return NotFound();
-          }
+            if (_context.Orders == null)
+            {
+                return NotFound();
+            }
             return await _context.Orders.ToListAsync();
         }
+        // GET: api/Orders
+      //  [HttpGet("{userId}")]
+      //  public async Task<ActionResult<IEnumerable<Order>>> GetOrdersByUserId(int userId)
+      //  {
+           // var orders = await _context.Orders
+            //    .Where(o => o.UserId == userId)
+            //   .ToListAsync();
+
+           // if (orders == null || !orders.Any())
+           //{
+           //     return NotFound();
+           // }
+
+          //  return orders;
+       // }
+
 
         // GET: api/Orders/5
         [HttpGet("{id}")]
@@ -288,6 +304,51 @@ namespace Arts_be.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+
+        [HttpGet("getOrder/{userId}")]
+        public async Task<ActionResult<IEnumerable<OrderDTO>>> GetOrdersByUserId(int userId)
+        {
+            try
+            {
+                var orders = await _context.Orders
+                    .Include(o => o.OrdersDetails)
+                    .Where(o => o.UserId == userId)
+                    .Select(o => new OrderDTO
+                    {
+                        OrderId = o.OrderId,
+                        UserId = o.UserId,
+                        Phone = o.Phone,
+                        PaymentType = o.PaymentType,
+                        Amount = o.Amount,
+                        Notes = o.Notes,
+                        OrderStatus = o.OrderStatus,
+                        OrdersDetails = o.OrdersDetails.Select(od => new OrdersDetail
+                        {
+                            ProductId = od.ProductId,
+                            Title = od.Title,
+                            Quantity = od.Quantity,
+                            Price = od.Price,
+                            Total = od.Total
+                        }).ToList()
+                    })
+                    .ToListAsync();
+
+                if (orders == null || !orders.Any())
+                {
+                    return NotFound();
+                }
+
+                return orders;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi và ghi log nếu cần
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+
 
     }
 }
