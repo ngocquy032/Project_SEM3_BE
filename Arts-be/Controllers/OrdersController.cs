@@ -152,7 +152,7 @@ namespace Arts_be.Controllers
                 District = model.District,
                 OrderStatus = "Waiting for confirmation",
                 Amount = model.Amount,
-             
+
             };
             _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
@@ -179,6 +179,7 @@ namespace Arts_be.Controllers
                     await _context.SaveChangesAsync();
                 }
             }
+
 
             return model;
         }
